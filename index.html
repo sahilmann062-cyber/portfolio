@@ -1,0 +1,807 @@
+<!DOCTYPE html><html class="dark scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_standard" name="shell-type">
+<title>Sahilpreet Singh Maan | Unity Dev &amp; XR Creator</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+html {
+  scroll-behavior: smooth;
+}
+@layer base {
+  html, body { margin:0; padding:0; }
+  body { overscroll-behavior:none; }
+  main > :first-child { margin-top:0!important; }
+  main > :last-child { margin-bottom:0!important; }
+}
+::-webkit-scrollbar { display:none; }
+</style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface-container-highest": "#1d2430",
+        "secondary": "#a2b4c7",
+        "secondary-container": "#202938",
+        "tertiary-fixed-dim": "#00e29d",
+        "on-primary-fixed-variant": "#004e5d",
+        "on-tertiary-container": "#005f40",
+        "secondary-fixed": "#d3e5f3",
+        "primary-container": "#00d9ff",
+        "surface-container": "#131822",
+        "primary-fixed-dim": "#00d9ff",
+        "outline-variant": "#243040",
+        "on-secondary": "#1a2330",
+        "primary-fixed": "#aeecff",
+        "error": "#ffb4ab",
+        "on-tertiary-fixed-variant": "#005236",
+        "tertiary-container": "#00e29d",
+        "secondary-fixed-dim": "#b7c9d7",
+        "tertiary": "#4bffb8",
+        "tertiary-fixed": "#47ffb8",
+        "surface-container-low": "#0e121a",
+        "on-primary-fixed": "#001f26",
+        "surface": "#080b12",
+        "on-tertiary-fixed": "#002113",
+        "background": "#080b12",
+        "surface-container-lowest": "#05070c",
+        "surface-variant": "#1a212d",
+        "inverse-on-surface": "#1d222c",
+        "on-surface-variant": "#94a3b8",
+        "surface-bright": "#222a38",
+        "on-error-container": "#ffdad6",
+        "surface-container-high": "#171d27",
+        "on-surface": "#ffffff",
+        "inverse-primary": "#00687b",
+        "surface-tint": "#00d9ff",
+        "on-background": "#ffffff",
+        "on-primary": "#003641",
+        "inverse-surface": "#f1f5f9",
+        "surface-dim": "#080b12",
+        "primary": "#afecff",
+        "error-container": "#93000a",
+        "on-tertiary": "#003824",
+        "on-primary-container": "#003641",
+        "on-secondary-fixed-variant": "#394954",
+        "outline": "#475569",
+        "on-error": "#690005",
+        "on-secondary-fixed": "#0c1d27",
+        "on-secondary-container": "#cbd5e1"
+      },
+      borderRadius: {
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        full: "9999px"
+      },
+      spacing: {
+        "space-lg": "1.5rem",
+        margin: "2rem",
+        gutter: "1.5rem",
+        "space-xl": "2.5rem",
+        "space-sm": "0.5rem",
+        "space-xs": "0.25rem",
+        "space-md": "1rem"
+      },
+      fontFamily: {
+        "headline-lg": ["Space Grotesk"],
+        "label-sm": ["JetBrains Mono"],
+        "body-lg": ["Geist"],
+        "code-md": ["JetBrains Mono"],
+        "headline-xl": ["Space Grotesk"],
+        "headline-lg-mobile": ["Space Grotesk"],
+        "headline-sm": ["Space Grotesk"],
+        "headline-xl-mobile": ["Space Grotesk"],
+        "body-sm": ["Geist"],
+        "body-md": ["Geist"],
+        "label-md": ["JetBrains Mono"],
+        "headline-md": ["Space Grotesk"]
+      },
+      fontSize: {
+        "headline-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "label-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "500" }],
+        "body-lg": ["17px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "400" }],
+        "code-md": ["13px", { lineHeight: "20px", letterSpacing: "-0.01em", fontWeight: "500" }],
+        "headline-xl": ["52px", { lineHeight: "60px", letterSpacing: "-0.03em", fontWeight: "700" }],
+        "headline-lg-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "headline-sm": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+        "headline-xl-mobile": ["34px", { lineHeight: "42px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "body-sm": ["13px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-md": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+        "label-md": ["12px", { lineHeight: "18px", letterSpacing: "0.05em", fontWeight: "500" }],
+        "headline-md": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "600" }]
+      }
+    }
+  }
+};
+</script>
+</head>
+<body class="bg-[#080B12] font-body-md text-body-md text-white selection:bg-[#00d9ff] selection:text-black min-h-screen">
+<!-- GLOBAL TOAST NOTIFICATION CONTAINER -->
+<div class="fixed top-24 right-6 z-50 flex flex-col gap-2 pointer-events-none" id="toast-container"></div>
+<!-- PREVIEW MODAL -->
+<div class="fixed inset-0 z-50 items-center justify-center bg-black/80 backdrop-blur-md p-4 transition-all hidden" id="project-modal">
+<div class="relative w-full max-w-4xl bg-[#131822] border border-[#00d9ff]/40 rounded-2xl p-6 shadow-[0_0_50px_rgba(0,217,255,0.25)] flex flex-col gap-4 max-h-[90vh] overflow-y-auto"><div class="flex items-center justify-between border-b border-white/10 pb-3"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[#00d9ff]">verified</span><h3 class="font-headline-sm text-headline-sm text-white font-bold" id="modal-title">BrightXR Certified Computer Foundation Program</h3></div><button class="w-8 h-8 rounded-lg bg-[#171d27] hover:bg-[#00d9ff] hover:text-[#080B12] text-white flex items-center justify-center transition-colors" onclick="closeModal()"><span class="material-symbols-outlined text-sm">close</span></button></div><div class="text-body-md text-[#a2b4c7] space-y-3" id="modal-content"><div class="space-y-3"><div class="flex items-center gap-2 text-[#4bffb8]"><span class="material-symbols-outlined">verified</span><span class="font-label-md text-label-md uppercase font-semibold">Credential Verified &amp; Accredited</span></div><p class="text-white leading-relaxed">Issued by <strong>BrightXR Institute</strong> to <strong>Sahilpreet Singh Maan</strong> for mastering computer foundation architecture, object-oriented C# scripting, and interactive 3D spatial concepts in Unity.</p><div class="my-2 rounded-xl overflow-hidden border-2 border-[#00d9ff]/40 bg-white p-2 shadow-2xl"><img alt="BrightXR Verified Certificate Sahilpreet Singh Maan" class="w-full h-auto object-contain block rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEWfDuEyYyn9-scygafZuzKT-u0zhVwkYmMiZRFwLNFJWOHJArrz0B2seh1j3HZkzq1W4zlEZS0ZP21eEsfXILs-Vs4W_622m-bQ8xKftjvwzKQo_WWMPfZnv48d8DJGJRQY8kFVj3F19Zt0jo4vf-hpoTN9gAyvCJAYrnOh6yq1Z8vh6XzTKK6QTBYZ0m_rZf9SBgo8vn8h-iYsPLzWpe_dru0ZaRR_batFhbDMe9R8z_xgi6xPty2c3PuW2bFD3Isg" style="image-rendering: crisp-edges; filter: contrast(1.04) brightness(1.01); width: 100%; height: auto; display: block;"></div><div class="grid grid-cols-2 gap-2 pt-2"><div class="p-2.5 rounded bg-[#080B12] border border-white/10"><div class="text-[11px] text-[#a2b4c7] font-mono">TRACK 01</div><div class="text-xs text-white font-semibold">Phase 1: Completed</div></div><div class="p-2.5 rounded bg-[#080B12] border border-white/10"><div class="text-[11px] text-[#a2b4c7] font-mono">TRACK 02</div><div class="text-xs text-[#4bffb8] font-semibold">Phase 2: Completed</div></div></div></div></div><div class="flex justify-end gap-3 pt-2 border-t border-white/10"><a class="px-4 py-2 rounded bg-[#171d27] border border-[#00d9ff]/40 text-[#00d9ff] hover:bg-[#00d9ff] hover:text-[#080B12] transition-all font-label-md text-label-md uppercase inline-flex items-center gap-1.5" href="https://lh3.googleusercontent.com/aida-public/AB6AXuDpMNqBTW6zm8ZluxXGZ_iq7S1msq1Jf00AwOjjhd4pkJ7Lqobuxt7QIs2x5ygNQM6C5TMT9Nup5DqrzqMu5CKFFrhGN6wsdvYCFJHIWlRDdVqeu61Yi08IhHFL8jXSZbSR3kMAO9tiJaxPMtKx68qyaF472omMIo6dXeVbAijWeSSmNW48aniU5eCtEJGlclSFTdM5y3mKTSt9FwPxe03hP-q20vvAtyCzezEhiPZ48U6coLaV1--pHzlGz3nD2bEIEQ" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-sm">open_in_new</span><span class="">Full Resolution</span></a><button class="px-4 py-2 rounded bg-[#171d27] border border-white/10 text-white hover:border-[#00d9ff] transition-all font-label-md text-label-md uppercase cursor-pointer" onclick="closeModal()">Close</button><a class="nav-link px-4 py-2 rounded bg-[#00d9ff] text-[#080B12] font-bold font-label-md text-label-md uppercase hover:bg-[#afecff] transition-all shadow-[0_0_15px_rgba(0,217,255,0.3)]" href="#contact" onclick="closeModal()">Discuss Project</a></div></div>
+</div>
+<!-- HEADER / NAV -->
+<header class="fixed top-0 left-0 right-0 z-40 bg-[#080B12]/85 backdrop-blur-xl border-b border-[#00d9ff]/15 shadow-[0_4px_30px_rgba(0,0,0,0.7)]">
+<div class="h-20 max-w-[1440px] mx-auto px-margin flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<a class="nav-link flex flex-col group cursor-pointer" href="#home">
+<span class="font-headline-sm text-headline-sm tracking-tight text-white font-bold group-hover:text-[#00d9ff] transition-colors">SAHILPREET</span>
+<span class="font-label-sm text-label-sm text-[#00d9ff] tracking-widest uppercase">Unity Dev &amp; XR Creator</span>
+</a>
+</div>
+<!-- Desktop Navigation with Active Indicator -->
+<div class="relative hidden xl:flex items-center h-full">
+<nav class="flex items-center gap-6 h-full relative" id="desktop-nav">
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider hover:text-[#00d9ff] transition-colors cursor-pointer py-2 text-[#00d9ff]" href="#home">Home</a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider hover:text-[#00d9ff] transition-colors cursor-pointer py-2 text-[#a2b4c7]" href="#about">About</a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider hover:text-[#00d9ff] transition-colors cursor-pointer py-2 text-[#a2b4c7]" href="#skills">Skills</a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider hover:text-[#00d9ff] transition-colors cursor-pointer py-2 text-[#a2b4c7]" href="#projects">Projects</a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider hover:text-[#00d9ff] transition-colors cursor-pointer py-2 text-[#a2b4c7]" href="#education">Education</a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider text-[#a2b4c7] hover:text-[#00d9ff] transition-colors cursor-pointer py-2" href="#certificates">Certificates</a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider text-[#a2b4c7] hover:text-[#00d9ff] transition-colors cursor-pointer py-2" href="#contact">Contact</a>
+<!-- Glowing Active Nav Indicator Line -->
+<div class="absolute bottom-4 h-[2.5px] bg-[#00d9ff] rounded-full shadow-[0_0_12px_rgba(0,217,255,0.9),0_0_4px_#00d9ff] transition-all duration-300 ease-out pointer-events-none" id="nav-indicator" style="left: 0px; width: 31.2px;"></div>
+</nav>
+</div>
+<div class="flex items-center gap-space-md">
+<a class="nav-link hidden sm:inline-flex px-space-md py-2 font-label-md text-label-md uppercase tracking-wider text-[#080B12] bg-[#00d9ff] hover:bg-[#afecff] font-bold rounded transition-all shadow-[0_0_16px_rgba(0,217,255,0.35)] cursor-pointer" href="#contact">Contact Me</a>
+<!-- Mobile Menu Button -->
+<button aria-label="Toggle navigation menu" class="xl:hidden w-10 h-10 rounded-lg bg-[#171d27] border border-[#00d9ff]/30 text-white flex items-center justify-center hover:text-[#00d9ff] hover:border-[#00d9ff] transition-all cursor-pointer" id="mobile-menu-btn" type="button">
+<span class="material-symbols-outlined text-2xl" id="mobile-menu-icon">menu</span>
+</button>
+</div>
+</div>
+<!-- Mobile Dropdown Menu with Active Indicators -->
+<div class="hidden xl:hidden w-full bg-[#0e121a]/95 backdrop-blur-2xl border-b border-[#00d9ff]/20 px-margin py-4 flex flex-col gap-2 transition-all duration-300" id="mobile-menu">
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider hover:text-[#00d9ff] py-2.5 px-3 rounded-lg border-l-2 transition-colors cursor-pointer flex items-center justify-between text-[#00d9ff] border-[#00d9ff] bg-[#171d27]/40" href="#home"><span class="">Home</span><span class="w-1.5 h-1.5 rounded-full bg-[#00d9ff] shadow-[0_0_8px_#00d9ff]"></span></a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider hover:text-[#00d9ff] py-2.5 px-3 rounded-lg border-l-2 transition-colors cursor-pointer flex items-center justify-between text-[#a2b4c7] border-transparent" href="#about"><span class="">About</span></a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider hover:text-[#00d9ff] py-2.5 px-3 rounded-lg border-l-2 transition-colors cursor-pointer flex items-center justify-between text-[#a2b4c7] border-transparent" href="#skills"><span class="">Skills</span></a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider hover:text-[#00d9ff] py-2.5 px-3 rounded-lg border-l-2 transition-colors cursor-pointer flex items-center justify-between text-[#a2b4c7] border-transparent" href="#projects"><span class="">Projects</span></a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider hover:text-[#00d9ff] py-2.5 px-3 rounded-lg border-l-2 transition-colors cursor-pointer flex items-center justify-between text-[#a2b4c7] border-transparent" href="#education"><span class="">Education</span></a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider text-[#a2b4c7] hover:text-[#00d9ff] py-2.5 px-3 rounded-lg border-l-2 border-transparent transition-colors cursor-pointer flex items-center justify-between" href="#certificates"><span class="">Certificates</span></a>
+<a class="nav-link font-label-md text-label-md uppercase tracking-wider text-[#a2b4c7] hover:text-[#00d9ff] py-2.5 px-3 rounded-lg border-l-2 border-transparent transition-colors cursor-pointer flex items-center justify-between" href="#contact"><span class="">Contact</span></a>
+<a class="nav-link inline-flex sm:hidden items-center justify-center px-space-md py-2.5 font-label-md text-label-md uppercase tracking-wider text-[#080B12] bg-[#00d9ff] hover:bg-[#afecff] font-bold rounded transition-all shadow-[0_0_16px_rgba(0,217,255,0.35)] mt-2 text-center cursor-pointer text-[#a2b4c7] border-transparent" href="#contact">Contact Me</a>
+</div>
+</header>
+<main class="w-full pt-20 bg-[#080B12] min-h-screen">
+<div class="flex flex-col w-full">
+<div class="relative w-full overflow-hidden">
+<div class="pointer-events-none absolute inset-0 opacity-10 bg-[radial-gradient(#00d9ff_1px,transparent_1px)] [background-size:32px_32px]"></div>
+<!-- 01. HERO SECTION -->
+<section class="relative w-full max-w-[1440px] mx-auto px-margin pt-8 pb-12 lg:py-14" id="home">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-[#171d27] w-fit border border-[#00d9ff]/30 shadow-[0_0_18px_rgba(0,217,255,0.15)]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#00d9ff] animate-pulse shadow-[0_0_8px_#00d9ff]"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-[#00d9ff]">AVAILABLE FOR OPPORTUNITIES</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h1 class="font-headline-xl text-headline-xl text-white font-bold tracking-tight uppercase">SAHILPREET <span class="text-[#00d9ff]">SINGH MAAN</span></h1>
+<p class="font-headline-md text-headline-md text-[#afecff] font-semibold tracking-tight">Unity Game Developer &amp; XR Creator</p>
+</div>
+<p class="font-body-lg text-body-lg text-[#a2b4c7] max-w-xl leading-relaxed">“I create games and XR experiences with Unity.”</p>
+<div class="flex flex-wrap items-center gap-space-md pt-2">
+<a class="nav-link inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded bg-[#00d9ff] text-[#080B12] font-label-md text-label-md uppercase tracking-wider font-bold transition-all shadow-[0_0_24px_rgba(0,217,255,0.35)] hover:shadow-[0_0_36px_rgba(0,217,255,0.6)] hover:scale-[1.02] cursor-pointer" href="#projects">
+<span class="">VIEW PROJECTS</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+<a class="nav-link inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded bg-[#171d27] border border-[#00d9ff]/30 text-white hover:text-[#00d9ff] hover:bg-[#222a38] transition-all font-label-md text-label-md uppercase tracking-wider shadow-md cursor-pointer" href="#contact">
+<span class="">CONTACT ME</span>
+<span class="material-symbols-outlined text-base">mail</span>
+</a>
+</div>
+</div>
+<!-- Hero Right Column: Exact portrait asset -->
+<div class="lg:col-span-5 flex justify-center relative">
+<div class="absolute -inset-4 bg-[#00d9ff]/15 rounded-2xl blur-3xl pointer-events-none"></div>
+<div class="relative w-full max-w-[390px] aspect-square p-2.5 rounded-2xl bg-[#171d27]/80 border border-[#00d9ff]/30 backdrop-blur-xl shadow-[0_16px_40px_rgba(0,0,0,0.8)] group">
+<div class="w-full h-full rounded-xl overflow-hidden relative bg-[#05070c]">
+<img alt="Sahilpreet Singh Maan - Unity Developer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AEtjO1UarmjLYw27GFj1mWiLIL0HOhTuuI-PVyskuYUabSiUDUydFeGyeqoqQ69hnxC_mQ9vIghpyS2-6WG7TtFiBZ2Rs1Scb1-9fGJ3CQcrDGIexK0Wym70yFqA6QrnA5lorqjwTFF0NXc414GEdY2sDrlS3SvXKxcBi0OfaCYqr91QT1mnExN-tUZa2IO1exQMc50JyMWHmwLGMEQV3VPv5tPWnWw9AMcxLPF_G6nIampsm0tCjzNwmB281Wk">
+<div class="absolute inset-0 bg-gradient-to-t from-[#080B12]/60 via-transparent to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 02. ABOUT SECTION (EXPANDED CONTENT & HIGHLIGHT CARDS) -->
+<section class="w-full max-w-[1440px] mx-auto px-margin py-12" id="about">
+<div class="flex flex-col gap-space-xs mb-space-md">
+<span class="font-label-md text-label-md text-[#00d9ff] tracking-widest uppercase">// 01. PROFILE</span>
+<h2 class="font-headline-lg text-headline-lg text-white font-bold tracking-tight">About Me</h2>
+<div class="h-1 w-20 bg-[#00d9ff] rounded-full"></div>
+</div>
+<div class="flex flex-col gap-6 max-w-5xl">
+<div class="p-space-lg rounded-2xl bg-[#171d27]/70 border border-[#00d9ff]/20 backdrop-blur-xl shadow-lg">
+<p class="font-body-lg text-body-lg text-white font-normal leading-relaxed mb-4">
+              I am a passionate game development and XR creator currently pursuing my Diploma in Computer Science at GPC Badbar. I specialize in building interactive 3D games, user interfaces, and immersive VR/XR experiences with Unity and C#.
+            </p>
+<p class="font-body-md text-body-md text-[#a2b4c7] leading-relaxed">
+              My journey involves hands-on development—from coding game mechanics and player controls to designing responsive UI and exploring spatial computing with BrightXR. I love turning creative ideas into playable games and immersive virtual worlds.
+            </p>
+</div>
+<!-- 3 Concise Feature Highlights -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="p-5 rounded-xl bg-[#131822]/90 border border-white/10 hover:border-[#00d9ff]/40 transition-all shadow-md group flex flex-col gap-2">
+<div class="w-9 h-9 rounded-lg bg-[#00d9ff]/10 text-[#00d9ff] flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-lg">videogame_asset</span>
+</div>
+<h4 class="font-headline-sm text-[18px] text-white font-bold group-hover:text-[#00d9ff] transition-colors">3D Game Systems</h4>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] leading-relaxed">
+                Building player controllers, vehicle physics, collision detection, and score loops in Unity.
+              </p>
+</div>
+<div class="p-5 rounded-xl bg-[#131822]/90 border border-white/10 hover:border-[#00d9ff]/40 transition-all shadow-md group flex flex-col gap-2">
+<div class="w-9 h-9 rounded-lg bg-[#00d9ff]/10 text-[#00d9ff] flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-lg">dashboard_customize</span>
+</div>
+<h4 class="font-headline-sm text-[18px] text-white font-bold group-hover:text-[#00d9ff] transition-colors">Interactive UI Design</h4>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] leading-relaxed">
+                Designing clean in-game HUDs, diegetic menus, mini-maps, and responsive mobile controls.
+              </p>
+</div>
+<div class="p-5 rounded-xl bg-[#131822]/90 border border-white/10 hover:border-[#00d9ff]/40 transition-all shadow-md group flex flex-col gap-2">
+<div class="w-9 h-9 rounded-lg bg-[#00d9ff]/10 text-[#00d9ff] flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-lg">view_in_ar</span>
+</div>
+<h4 class="font-headline-sm text-[18px] text-white font-bold group-hover:text-[#00d9ff] transition-colors">Immersive VR &amp; Spatial</h4>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] leading-relaxed">
+                Crafting virtual environments, 6DoF camera interactions, and interactive virtual tours.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 03. SKILLS SECTION -->
+<section class="w-full max-w-[1440px] mx-auto px-margin py-12" id="skills">
+<div class="flex flex-col gap-space-xs mb-space-lg">
+<span class="font-label-md text-label-md text-[#00d9ff] tracking-widest uppercase">// 02. CAPABILITIES</span>
+<h2 class="font-headline-lg text-headline-lg text-white font-bold tracking-tight">Technical Skills</h2>
+<p class="font-body-md text-body-md text-[#a2b4c7]">Tools and technologies I use to build games and XR experiences.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="p-space-md rounded-xl bg-[#171d27]/70 border border-white/5 hover:border-[#00d9ff]/40 transition-all shadow-md group">
+<div class="w-10 h-10 rounded-lg bg-[#00d9ff]/10 text-[#00d9ff] flex items-center justify-center mb-space-sm">
+<span class="material-symbols-outlined text-xl">deployed_code</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white font-bold group-hover:text-[#00d9ff] transition-colors">Unity</h3>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] mt-1">Building 3D and 2D games, scene setup, and mechanics.</p>
+</div>
+<div class="p-space-md rounded-xl bg-[#171d27]/70 border border-white/5 hover:border-[#00d9ff]/40 transition-all shadow-md group">
+<div class="w-10 h-10 rounded-lg bg-[#00d9ff]/10 text-[#00d9ff] flex items-center justify-center mb-space-sm">
+<span class="material-symbols-outlined text-xl">terminal</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white font-bold group-hover:text-[#00d9ff] transition-colors">C#</h3>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] mt-1">Game logic, scripting, player controls, and mechanics.</p>
+</div>
+<div class="p-space-md rounded-xl bg-[#171d27]/70 border border-white/5 hover:border-[#00d9ff]/40 transition-all shadow-md group">
+<div class="w-10 h-10 rounded-lg bg-[#00d9ff]/10 text-[#00d9ff] flex items-center justify-center mb-space-sm">
+<span class="material-symbols-outlined text-xl">sports_esports</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white font-bold group-hover:text-[#00d9ff] transition-colors">Game Development</h3>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] mt-1">Game loops, levels, physics, and gameplay.</p>
+</div>
+<div class="p-space-md rounded-xl bg-[#171d27]/70 border border-white/5 hover:border-[#00d9ff]/40 transition-all shadow-md group">
+<div class="w-10 h-10 rounded-lg bg-[#00d9ff]/10 text-[#00d9ff] flex items-center justify-center mb-space-sm">
+<span class="material-symbols-outlined text-xl">view_in_ar</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white font-bold group-hover:text-[#00d9ff] transition-colors">XR</h3>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] mt-1">Extended reality concepts and spatial interaction.</p>
+</div>
+<div class="p-space-md rounded-xl bg-[#171d27]/70 border border-white/5 hover:border-[#00d9ff]/40 transition-all shadow-md group">
+<div class="w-10 h-10 rounded-lg bg-[#00d9ff]/10 text-[#00d9ff] flex items-center justify-center mb-space-sm">
+<span class="material-symbols-outlined text-xl">camera</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white font-bold group-hover:text-[#00d9ff] transition-colors">AR</h3>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] mt-1">Augmented reality tracking and interactive overlays.</p>
+</div>
+<div class="p-space-md rounded-xl bg-[#171d27]/70 border border-white/5 hover:border-[#00d9ff]/40 transition-all shadow-md group">
+<div class="w-10 h-10 rounded-lg bg-[#00d9ff]/10 text-[#00d9ff] flex items-center justify-center mb-space-sm">
+<span class="material-symbols-outlined text-xl">vr180_create2d</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white font-bold group-hover:text-[#00d9ff] transition-colors">VR</h3>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] mt-1">Virtual reality environments and immersive experiences.</p>
+</div>
+<div class="p-space-md rounded-xl bg-[#171d27]/70 border border-white/5 hover:border-[#00d9ff]/40 transition-all shadow-md group">
+<div class="w-10 h-10 rounded-lg bg-[#00d9ff]/10 text-[#00d9ff] flex items-center justify-center mb-space-sm">
+<span class="material-symbols-outlined text-xl">dashboard_customize</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white font-bold group-hover:text-[#00d9ff] transition-colors">UI Design</h3>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] mt-1">Diegetic game UI, HUDs, menus, and clean layouts.</p>
+</div>
+<div class="p-space-md rounded-xl bg-[#171d27]/70 border border-white/5 hover:border-[#00d9ff]/40 transition-all shadow-md group">
+<div class="w-10 h-10 rounded-lg bg-[#00d9ff]/10 text-[#00d9ff] flex items-center justify-center mb-space-sm">
+<span class="material-symbols-outlined text-xl">view_in_ar</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-white font-bold group-hover:text-[#00d9ff] transition-colors">Basic 3D Game Development</h3>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] mt-1">3D asset workflows, lighting, and camera setup.</p>
+</div>
+</div>
+</section>
+<!-- 04. PROJECTS SECTION -->
+<section class="w-full max-w-[1440px] mx-auto px-margin py-12" id="projects">
+<div class="flex flex-col gap-space-xs mb-space-lg">
+<span class="font-label-md text-label-md text-[#00d9ff] tracking-widest uppercase">// 03. SHOWCASE</span>
+<h2 class="font-headline-lg text-headline-lg text-white font-bold tracking-tight">Featured Projects</h2>
+<p class="font-body-md text-body-md text-[#a2b4c7]">Interactive games and immersive 3D experiences created in Unity.</p>
+</div>
+<div class="flex flex-col gap-space-lg">
+<!-- Project 1: Futuristic Ball Runner -->
+<div class="p-space-md lg:p-space-lg rounded-2xl bg-[#171d27]/70 border border-white/5 hover:border-[#00d9ff]/30 backdrop-blur-xl shadow-xl transition-all duration-300">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7 rounded-xl overflow-hidden relative aspect-[16/9] bg-[#05070c] group border border-white/10">
+<img alt="Futuristic Ball Runner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VD3V3lWLW5AVddnypf_mlIA6Xy4fcRACeT5WK3ppdWBi3m-_KPp8ojdpneXdUsQOEdEZVDg4bN4wE8AKzLFw8rlmzaWfQ-bAFGhPp7ya-pad0N0G3KpaiNM5TGUpxk3OQBK-4QNVqSG-4Lx8pfrJQKA7cQmnePkMGbTHdtI1ymRlWYrY4XSd1BUAE0d8DS-2B3Ggr1w4f1A_U84Npjd5VQApg85hMRom-BKQ-9n32LTAe9U0AR4Z7EGZ0">
+</div>
+<div class="lg:col-span-5 flex flex-col justify-between h-full gap-space-md">
+<div class="space-y-space-sm">
+<div class="font-label-md text-label-md text-[#00d9ff]">// PROJECT 01</div>
+<h3 class="font-headline-md text-headline-md text-white font-bold">Futuristic Ball Runner</h3>
+<p class="font-body-md text-body-md text-[#a2b4c7] leading-relaxed">
+                    A fast-paced 3D runner game where players control a ball, avoid obstacles, and aim for a high score.
+                  </p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-[#00d9ff] font-label-sm text-label-sm border border-[#00d9ff]/20">Unity 3D</span>
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-white font-label-sm text-label-sm border border-white/10">C#</span>
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-[#a2b4c7] font-label-sm text-label-sm border border-white/10">Physics</span>
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-[#4bffb8] font-label-sm text-label-sm border border-[#4bffb8]/20">Game Mechanics</span>
+</div>
+<div class="pt-space-xs">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded bg-[#1d2430] hover:bg-[#00d9ff] hover:text-[#080B12] text-white transition-all font-label-md text-label-md uppercase tracking-wider font-semibold border border-white/10 hover:border-[#00d9ff] cursor-pointer" onclick="previewProject('Futuristic Ball Runner', 'A high-speed cybernetic endless runner built in Unity 3D with custom physics, responsive sphere steering, neon obstacle hazard avoidance, dynamic speed scaling, and live HUD score tracking.')">
+<span class="">VIEW PROJECT</span>
+<span class="material-symbols-outlined text-base">north_east</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Project 2: Car Delivery Game -->
+<div class="p-space-md lg:p-space-lg rounded-2xl bg-[#171d27]/70 border border-white/5 hover:border-[#00d9ff]/30 backdrop-blur-xl shadow-xl transition-all duration-300">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 order-2 lg:order-1 flex flex-col justify-between h-full gap-space-md">
+<div class="space-y-space-sm">
+<div class="font-label-md text-label-md text-[#00d9ff]">// PROJECT 02</div>
+<h3 class="font-headline-md text-headline-md text-white font-bold">Car Delivery Game</h3>
+<p class="font-body-md text-body-md text-[#a2b4c7] leading-relaxed">
+                    A mobile 3D game where players drive a car, complete delivery missions, and reach different locations.
+                  </p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-[#00d9ff] font-label-sm text-label-sm border border-[#00d9ff]/20">Unity 3D</span>
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-white font-label-sm text-label-sm border border-white/10">C#</span>
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-[#a2b4c7] font-label-sm text-label-sm border border-white/10">Vehicle Controls</span>
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-[#4bffb8] font-label-sm text-label-sm border border-[#4bffb8]/20">Mobile UI</span>
+</div>
+<div class="pt-space-xs">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded bg-[#1d2430] hover:bg-[#00d9ff] hover:text-[#080B12] text-white transition-all font-label-md text-label-md uppercase tracking-wider font-semibold border border-white/10 hover:border-[#00d9ff] cursor-pointer" onclick="previewProject('Car Delivery Game', 'A full-featured Unity mobile driving sim featuring checkpoint waypoints, time-attack cargo delivery mechanics, diegetic steering touch pedals, urban city pathfinding, and interactive mission logic.')">
+<span class="">VIEW PROJECT</span>
+<span class="material-symbols-outlined text-base">north_east</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2 rounded-xl overflow-hidden relative aspect-[16/9] bg-[#05070c] group border border-white/10">
+<img alt="Car Delivery Game" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBprr-IFPl5wnq5JtGxKM5Oig8CWZEgZDzsR0Sfkb7BMUqrf7ycooiOa7azJMWpoE01mKrLm3Kn_a-FGHVyx49MHAhmVbkAbVU7r71P1EkCjlWSoy6PnQ5NGq56Yq_58F0bThlbFvnA6yHJ9W3JPOprMlHlKa_XAzyk0uVbBtLvbKQo6Y4xYLGhBtt3xG_0TnDpMN-JN4xujhbAiwWtTbhZOXawjeEtSzMjbl3oKSpd5Jt_P-zep8a0Zj4AqwdSCjrIMQ">
+</div>
+</div>
+</div>
+<!-- Project 3: Space VR Museum -->
+<div class="p-space-md lg:p-space-lg rounded-2xl bg-[#171d27]/70 border border-white/5 hover:border-[#00d9ff]/30 backdrop-blur-xl shadow-xl transition-all duration-300">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7 rounded-xl overflow-hidden relative aspect-[16/9] bg-[#05070c] group border border-white/10">
+<img alt="Space VR Museum" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1U5ECXUbcboxh8jFP6KFIXhtqXxkfv6A8ewC4iMjW6--XFAwm22Ps15ZnaxKZXAGTTHmGDq66eFRNrpucBQc8H_1IVxu37kWjHcCEKEEPytaB0dke-cmoeYADJbqTAHfZZx4M3ZmLQk4YlELwuofmy0sI6giJZr0X9hpcYzGoqr_pOxbDeWiGF4qoRSMvwIH-xuyrYJZf3s2R9nm1SsjLw2KysIK1jKKUXDMj1U6HuPmUVF0o2eZuCqC9E">
+</div>
+<div class="lg:col-span-5 flex flex-col justify-between h-full gap-space-md">
+<div class="space-y-space-sm">
+<div class="font-label-md text-label-md text-[#00d9ff]">// PROJECT 03</div>
+<h3 class="font-headline-md text-headline-md text-white font-bold">Space VR Museum</h3>
+<p class="font-body-md text-body-md text-[#a2b4c7] leading-relaxed">
+                    An immersive VR experience where users can explore space, view planets and learn about the universe.
+                  </p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-[#00d9ff] font-label-sm text-label-sm border border-[#00d9ff]/20">Unity 3D</span>
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-white font-label-sm text-label-sm border border-white/10">C#</span>
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-[#4bffb8] font-label-sm text-label-sm border border-[#4bffb8]/20">VR</span>
+<span class="px-space-sm py-1 rounded bg-[#080B12] text-[#a2b4c7] font-label-sm text-label-sm border border-white/10">3D Environment</span>
+</div>
+<div class="pt-space-xs">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded bg-[#1d2430] hover:bg-[#00d9ff] hover:text-[#080B12] text-white transition-all font-label-md text-label-md uppercase tracking-wider font-semibold border border-white/10 hover:border-[#00d9ff] cursor-pointer" onclick="previewProject('Space VR Museum', 'A spatial VR museum experience built for headset hardware. Features 3D planetary models, interactive celestial exhibits, teleportation locomotion, and spatial audio educational guides.')">
+<span class="">VIEW PROJECT</span>
+<span class="material-symbols-outlined text-base">north_east</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 05. EDUCATION SECTION -->
+<section class="w-full max-w-[1440px] mx-auto px-margin py-12" id="education">
+<div class="flex flex-col gap-space-xs mb-space-lg">
+<span class="font-label-md text-label-md text-[#00d9ff] tracking-widest uppercase">// 04. ACADEMICS</span>
+<h2 class="font-headline-lg text-headline-lg text-white font-bold tracking-tight">Education</h2>
+<p class="font-body-md text-body-md text-[#a2b4c7]">My current studies and academic background.</p>
+</div>
+<div class="p-space-lg rounded-2xl bg-[#171d27]/70 border border-[#00d9ff]/20 backdrop-blur-xl shadow-xl flex flex-col items-center justify-center text-center gap-space-md max-w-4xl mx-auto"><div class="flex flex-col items-center gap-space-xs max-w-2xl"><div class="flex items-center justify-center gap-space-xs"><span class="material-symbols-outlined text-[#00d9ff] text-xl">school</span><span class="font-label-md text-label-md text-[#00d9ff] uppercase tracking-wider font-semibold">Diploma in Computer Science</span></div><h3 class="font-headline-md text-headline-md text-white font-bold">GPC Badbar</h3><p class="font-body-md text-body-md text-[#a2b4c7]">Currently pursuing a Diploma in Computer Science (1st Semester) at GPC Badbar, focusing on computer fundamentals, programming basics, and software development.</p></div><div class="flex flex-col items-center justify-center px-space-md py-3 rounded-xl bg-[#080B12] border border-white/10 min-w-[200px]"><span class="font-label-sm text-label-sm text-[#a2b4c7] uppercase tracking-widest">Current Status</span><span class="font-headline-sm text-headline-sm text-[#00d9ff] font-bold">1st Semester Student</span><span class="font-body-sm text-body-sm text-white/70">Govt Polytechnic College</span></div></div>
+</section>
+<!-- 06. CERTIFICATES SECTION (UPDATED WITH 3 TRACKS) -->
+<section class="w-full max-w-[1440px] mx-auto px-margin py-12" id="certificates">
+<div class="flex flex-col gap-space-xs mb-space-lg">
+<span class="font-label-md text-label-md text-[#00d9ff] tracking-widest uppercase">// 05. CREDENTIALS</span>
+<h2 class="font-headline-lg text-headline-lg text-white font-bold tracking-tight">Certificates &amp; Training</h2>
+<p class="font-body-md text-body-md text-[#a2b4c7]">Accredited training programs and ongoing technical learning tracks.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-stretch">
+<!-- Main Flagship Certificate -->
+<div class="md:col-span-3 lg:col-span-2 p-space-lg rounded-2xl bg-[#171d27]/70 border border-[#00d9ff]/25 backdrop-blur-xl shadow-xl flex flex-col justify-between relative overflow-hidden group">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[#00d9ff]">verified</span>
+<span class="font-label-sm text-label-sm text-[#00d9ff] uppercase tracking-wider font-semibold">CERTIFIED PROGRAM</span>
+</div>
+<span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-[#080B12] text-[#a2b4c7] border border-white/10">BrightXR Institute</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white font-bold group-hover:text-[#00d9ff] transition-colors">
+                BrightXR Certified Computer Foundation Program
+              </h3>
+<p class="font-body-md text-body-md text-[#a2b4c7] leading-relaxed">
+                Comprehensive foundational program covering core computing fundamentals, programming logic, 3D interactive graphics, and Unity development principles.
+              </p>
+</div><div class="my-3 rounded-xl border border-[#00d9ff]/30 bg-[#0b0e15] p-5 shadow-[0_8px_30px_rgba(0,0,0,0.7)] flex flex-col gap-4 group/cert transition-all duration-300 hover:border-[#00d9ff] hover:shadow-[0_0_24px_rgba(0,217,255,0.2)]"><div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-3"><div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#4bffb8] shadow-[0_0_8px_#00d9ff]"></span><span class="font-label-sm text-label-sm text-[#4bffb8] uppercase font-semibold tracking-wider">Accredited Credential</span><span class="text-white/40">•</span><span class="font-label-sm text-label-sm text-[#a2b4c7]">Startup Punjab (Mission 2026)</span></div><a class="font-label-sm text-label-sm text-[#00d9ff] hover:underline flex items-center gap-1 transition-colors" href="https://lh3.googleusercontent.com/aida-public/AB6AXuD3w6dI5iErsiXE6Wd9MGYtbjDmKdPraEuQjwD0CjQbQH9_uPuBjKEX3Z89L_Kc_w0fLLswMTq7ivjI2JCsuTLACw_ZA7Z_JBwv-jiAzL6GEh-vpSA-HgdBKiNQoh3beRQg8VvFHmGwQJg6LU15V0fZQpyv6IAGwGlpnpO9oNGY8FvOSZBOadcmXOEwXMhR7TOKcoixbXJyvo7KGnJLo8gPaTZX9vh02yOgEpxqgZ8EFRYyIpW7I1SIupq6LrJj6_8_BQ" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-xs">open_in_new</span><span class="">Open Original Image (1490 × 1055)</span></a></div><div class="grid grid-cols-2 sm:grid-cols-4 gap-2 py-1"><div class="p-3 rounded-lg bg-[#131822] border border-white/5"><span class="font-label-sm text-label-sm text-[#a2b4c7] uppercase block">Grade</span><span class="font-headline-sm text-[18px] text-[#4bffb8] font-bold">A+</span></div><div class="p-3 rounded-lg bg-[#131822] border border-white/5"><span class="font-label-sm text-label-sm text-[#a2b4c7] uppercase block">Duration</span><span class="font-headline-sm text-[18px] text-white font-bold">30 Days</span></div><div class="p-3 rounded-lg bg-[#131822] border border-white/5"><span class="font-label-sm text-label-sm text-[#a2b4c7] uppercase block">Completed</span><span class="font-code-md text-sm text-white font-medium">30 June 2026</span></div><div class="p-3 rounded-lg bg-[#131822] border border-white/5"><span class="font-label-sm text-label-sm text-[#a2b4c7] uppercase block">Standard</span><span class="font-code-md text-sm text-[#00d9ff] font-medium">ISO 9001:2015</span></div></div><div class="flex flex-col gap-2 pt-1"><span class="font-label-sm text-label-sm text-[#a2b4c7] uppercase tracking-wider">Key Competencies &amp; Modules Verified:</span><div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><div class="flex items-center gap-2 p-2 rounded bg-[#171d27]/70 border border-white/5 text-xs text-white"><span class="w-1.5 h-1.5 rounded-full bg-[#00d9ff]"></span><span class="">Digital Literacy &amp; Computer Fundamentals</span></div><div class="flex items-center gap-2 p-2 rounded bg-[#171d27]/70 border border-white/5 text-xs text-white"><span class="w-1.5 h-1.5 rounded-full bg-[#00d9ff]"></span><span class="">Problem Solving &amp; Logical Thinking</span></div><div class="flex items-center gap-2 p-2 rounded bg-[#171d27]/70 border border-white/5 text-xs text-white"><span class="w-1.5 h-1.5 rounded-full bg-[#00d9ff]"></span><span class="">Internet &amp; Safety Awareness</span></div><div class="flex items-center gap-2 p-2 rounded bg-[#171d27]/70 border border-white/5 text-xs text-white"><span class="w-1.5 h-1.5 rounded-full bg-[#00d9ff]"></span><span class="">Practical Learning &amp; Projects</span></div></div></div></div>
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-md"><div class="flex flex-wrap items-center gap-3 font-label-sm text-label-sm"><div class="flex items-center gap-2 text-[#a2b4c7]"><span class="w-2 h-2 rounded-full bg-[#00d9ff] animate-pulse"></span><span class="">Verified ID:</span><a class="font-code-md text-[#00d9ff] hover:underline font-semibold" href="https://www.brightxr.in" rel="noopener noreferrer" target="_blank">BXR-BPM-002</a></div><a class="px-2.5 py-1 rounded bg-[#080B12] border border-[#00d9ff]/20 text-[#a2b4c7] hover:text-[#00d9ff] hover:border-[#00d9ff]/40 transition-colors inline-flex items-center gap-1 font-label-sm text-label-sm" href="https://www.brightxr.in" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-xs">language</span><span class="">brightxr.in</span></a></div><div class="flex items-center gap-2"><button class="px-3 py-2 rounded bg-[#171d27] hover:bg-[#222a38] text-[#a2b4c7] hover:text-white font-label-md text-label-md uppercase tracking-wider border border-white/10 hover:border-[#00d9ff]/30 transition-all cursor-pointer" onclick="previewCertificate()" type="button">Details</button><a class="px-space-md py-2 rounded bg-[#00d9ff] hover:bg-[#afecff] text-[#080B12] font-label-md text-label-md uppercase tracking-wider font-bold transition-all shadow-[0_0_16px_rgba(0,217,255,0.3)] hover:shadow-[0_0_24px_rgba(0,217,255,0.5)] cursor-pointer inline-flex items-center gap-1.5" href="https://lh3.googleusercontent.com/aida-public/AB6AXuBEWGH4cg9eVaWHltM9O9RN7RdehNtkV3sfKv8wy5WiWkOukxmlLVu113Q69353kWL6Jh09hpgsFlIqxfzERXQwjewG_eQpRPXEdfY4VQvS7lgvKamTBYwrWFbF0wWPkNJrboZYVCAw4YQJSbAn0AztSnhifQPHTrImaZJ4YFKEMqfIrrSYElrHnyImLmqSXTlaiTxLcwUPyC8R98HdnmawacJ-rwoVL_e3uDv7YN0JWuJ39Baxa1AMtR-Z_bSjBaC2xA" rel="noopener noreferrer" target="_blank"><span class="">VIEW / OPEN CERTIFICATE</span><span class="material-symbols-outlined text-base font-bold">north_east</span></a></div></div>
+</div>
+<!-- Phase 1, 2, and 3 Tracks -->
+<div class="md:col-span-3 lg:col-span-1 flex flex-col gap-3">
+<!-- Phase 1 -->
+<div class="p-4 rounded-xl bg-[#171d27]/70 border border-white/5 shadow-md flex flex-col justify-between flex-1 group">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-[#a2b4c7] uppercase">TRACK 01</span>
+<span class="font-label-sm text-label-sm text-[#4bffb8] font-semibold">COMPLETED</span>
+</div>
+<h4 class="font-headline-sm text-[16px] text-white font-bold group-hover:text-[#4bffb8] transition-colors">BrightXR Phase 1</h4>
+<p class="font-body-sm text-[13px] text-[#a2b4c7] mt-0.5 leading-snug">
+                  Foundational computing, logic structures, and core game development concepts.
+                </p>
+</div>
+</div>
+<!-- Phase 2 -->
+<div class="p-4 rounded-xl bg-[#171d27]/70 border border-[#4bffb8]/20 shadow-md flex flex-col justify-between flex-1 group">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-[#a2b4c7] uppercase">TRACK 02</span>
+<span class="font-label-sm text-label-sm text-[#4bffb8] font-semibold">COMPLETED</span>
+</div>
+<h4 class="font-headline-sm text-[16px] text-white font-bold group-hover:text-[#4bffb8] transition-colors">BrightXR Phase 2 — XR</h4>
+<p class="font-body-sm text-[13px] text-[#a2b4c7] mt-0.5 leading-snug">
+                  Extended reality development, VR immersion environments, and spatial computing interaction.
+                </p>
+</div>
+</div>
+<!-- Phase 3 (NEW) -->
+<div class="p-4 rounded-xl bg-[#171d27]/70 border border-[#00d9ff]/30 shadow-md flex flex-col justify-between flex-1 group">
+<div>
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-[#00d9ff] uppercase">TRACK 03</span>
+<span class="font-label-sm text-label-sm text-[#00d9ff] font-semibold">IN PROGRESS</span>
+</div>
+<h4 class="font-headline-sm text-[16px] text-white font-bold group-hover:text-[#00d9ff] transition-colors">BrightXR Phase 3 — Advanced XR &amp; Project Specialization</h4>
+<p class="font-body-sm text-[13px] text-[#a2b4c7] mt-0.5 leading-snug">
+                  Advanced interactive game systems, multiplayer mechanics, and portfolio capstone development.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 07. CONTACT SECTION -->
+<section class="w-full max-w-[1440px] mx-auto px-margin py-12 pb-16" id="contact">
+<div class="p-space-lg lg:p-space-xl rounded-3xl bg-[#171d27]/70 border border-white/10 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] relative overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center"><div class="lg:col-span-6 flex flex-col gap-space-md"><div class="flex flex-col gap-space-xs"><span class="font-label-md text-label-md text-[#00d9ff] tracking-widest uppercase">// 06. GET IN TOUCH</span><h2 class="font-headline-lg text-headline-lg text-white font-bold tracking-tight">Let’s Create Something</h2><p class="font-body-lg text-body-lg text-[#a2b4c7]">Feel free to reach out for game projects, collaborations, or opportunities.</p></div><div class="flex flex-col gap-space-sm pt-space-xs"><div class="p-space-md rounded-xl bg-[#080B12]/80 border border-white/5 flex items-center justify-between group shadow-sm hover:border-[#00d9ff]/30 transition-all"><div class="flex items-center gap-space-sm"><div class="p-space-xs rounded bg-[#00d9ff]/10 text-[#00d9ff]"><span class="material-symbols-outlined text-xl">phone</span></div><div class="flex flex-col"><span class="font-label-sm text-label-sm text-[#a2b4c7] uppercase tracking-wider">Phone</span><a class="font-code-md text-code-md text-white font-semibold hover:text-[#00d9ff] transition-colors" href="tel:7814915880">+91 7814915880</a></div></div><a class="px-space-sm py-1 rounded bg-[#1d2430] hover:bg-[#00d9ff] hover:text-[#080B12] text-white font-label-sm text-label-sm uppercase transition-colors cursor-pointer" href="tel:7814915880">Call</a></div><div class="p-space-md rounded-xl bg-[#080B12]/80 border border-white/5 flex items-center justify-between group shadow-sm hover:border-[#00d9ff]/30 transition-all"><div class="flex items-center gap-space-sm"><div class="p-space-xs rounded bg-[#00d9ff]/10 text-[#00d9ff]"><span class="material-symbols-outlined text-xl">mail</span></div><div class="flex flex-col"><span class="font-label-sm text-label-sm text-[#a2b4c7] uppercase tracking-wider">Email</span><a class="font-code-md text-code-md text-white font-semibold hover:text-[#00d9ff] transition-colors" href="mailto:sahilmann062@gamil.com">sahilmann062@gamil.com</a></div></div><a class="px-space-sm py-1 rounded bg-[#1d2430] hover:bg-[#00d9ff] hover:text-[#080B12] text-white font-label-sm text-label-sm uppercase transition-colors cursor-pointer" href="mailto:sahilmann062@gamil.com">Send Email</a></div><div class="p-space-md rounded-xl bg-[#080B12]/80 border border-white/5 flex items-center justify-between group shadow-sm hover:border-[#00d9ff]/30 transition-all"><div class="flex items-center gap-space-sm"><div class="p-space-xs rounded bg-[#00d9ff]/10 text-[#00d9ff]"><span class="material-symbols-outlined text-xl">share</span></div><div class="flex flex-col"><span class="font-label-sm text-label-sm text-[#a2b4c7] uppercase tracking-wider">LinkedIn</span><a class="font-code-md text-code-md text-white font-semibold hover:text-[#00d9ff] transition-colors truncate max-w-[220px] md:max-w-xs" href="https://www.linkedin.com/in/sahilpreet-singh-maan-664242423/" rel="noopener noreferrer" target="_blank">sahilpreet-singh-maan-664242423</a></div></div><a class="px-space-sm py-1 rounded bg-[#1d2430] hover:bg-[#00d9ff] hover:text-[#080B12] text-white font-label-sm text-label-sm uppercase transition-colors cursor-pointer" href="https://www.linkedin.com/in/sahilpreet-singh-maan-664242423/" rel="noopener noreferrer" target="_blank">Connect</a></div></div></div><div class="lg:col-span-6"><form class="p-space-md lg:p-space-lg rounded-2xl bg-[#080B12]/90 border border-[#00d9ff]/20 shadow-xl flex flex-col gap-4" id="contact-form"><div class="flex items-center gap-2 border-b border-white/10 pb-3"><span class="material-symbols-outlined text-[#00d9ff]">send</span><h3 class="font-headline-sm text-headline-sm text-white font-bold">Send a Message</h3></div><div class="flex flex-col gap-1.5"><label class="font-label-sm text-label-sm uppercase text-[#a2b4c7]" for="form-name">Your Name</label><input class="w-full px-4 py-2.5 rounded-lg bg-[#171d27] border border-white/10 text-white placeholder-white/40 focus:border-[#00d9ff] focus:outline-none transition-colors text-body-md" id="form-name" placeholder="e.g. Alex Smith" required="" type="text"></div><div class="flex flex-col gap-1.5"><label class="font-label-sm text-label-sm uppercase text-[#a2b4c7]" for="form-email">Your Email</label><input class="w-full px-4 py-2.5 rounded-lg bg-[#171d27] border border-white/10 text-white placeholder-white/40 focus:border-[#00d9ff] focus:outline-none transition-colors text-body-md" id="form-email" placeholder="alex@example.com" required="" type="email"></div><div class="flex flex-col gap-1.5"><label class="font-label-sm text-label-sm uppercase text-[#a2b4c7]" for="form-message">Message</label><textarea class="w-full px-4 py-2.5 rounded-lg bg-[#171d27] border border-white/10 text-white placeholder-white/40 focus:border-[#00d9ff] focus:outline-none transition-colors text-body-md resize-none" id="form-message" placeholder="Write your message or project inquiry here..." required="" rows="4"></textarea></div><button class="w-full py-3 rounded-lg bg-[#00d9ff] hover:bg-[#afecff] text-[#080B12] font-bold font-label-md text-label-md uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(0,217,255,0.35)] flex items-center justify-center gap-2 cursor-pointer mt-1" type="submit"><span class="">Send Message</span><span class="material-symbols-outlined text-base font-bold">arrow_forward</span></button></form></div></div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="w-full bg-[#05070c] border-t border-white/10">
+<div class="max-w-[1440px] mx-auto px-margin py-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-space-md pb-6">
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-white font-bold">SAHILPREET SINGH MAAN</span>
+<p class="font-body-sm text-body-sm text-[#00d9ff] font-semibold">Unity Game Developer &amp; XR Creator</p>
+<p class="font-body-sm text-body-sm text-[#a2b4c7] max-w-md">“I create games and XR experiences with Unity.”</p>
+</div>
+<div class="flex flex-wrap items-center gap-3 font-label-md text-label-md">
+
+<a class="px-space-sm py-1.5 bg-[#171d27] text-[#a2b4c7] hover:text-[#00d9ff] hover:bg-[#222a38] rounded transition-colors" href="https://www.linkedin.com/in/sahilpreet-singh-maan-664242423/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+<a class="px-space-sm py-1.5 bg-[#171d27] text-[#a2b4c7] hover:text-[#00d9ff] hover:bg-[#222a38] rounded transition-colors" href="mailto:sahilmann062@gamil.com">Email</a>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-4 border-t border-white/5">
+<span class="font-label-sm text-label-sm text-[#a2b4c7]">© 2025 Sahilpreet Singh Maan. All rights reserved.</span>
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm text-[#a2b4c7]">
+<span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#00d9ff]"></span>Unity &amp; XR Portfolio</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+// Interactive Toast helper
+function showToast(message, type = 'success') {
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = 'flex items-center gap-3 px-5 py-3 rounded-xl bg-[#131822] border border-[#00d9ff] text-white shadow-[0_0_25px_rgba(0,217,255,0.4)] backdrop-blur-xl transition-all duration-300 transform translate-x-full pointer-events-auto';
+  
+  const icon = type === 'success' ? 'check_circle' : 'info';
+  const iconColor = type === 'success' ? 'text-[#00d9ff]' : 'text-[#4bffb8]';
+  
+  toast.innerHTML = `
+    <span class="material-symbols-outlined ${iconColor}">${icon}</span>
+    <span class="font-body-md text-sm text-white font-medium">${message}</span>
+  `;
+  
+  container.appendChild(toast);
+  
+  // Animate in
+  setTimeout(() => {
+    toast.classList.remove('translate-x-full');
+  }, 10);
+  
+  // Animate out
+  setTimeout(() => {
+    toast.classList.add('opacity-0', 'translate-x-full');
+    setTimeout(() => toast.remove(), 400);
+  }, 4000);
+}
+
+// Modal helper
+function previewProject(title, description) {
+  const modal = document.getElementById('project-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalContent = document.getElementById('modal-content');
+  
+  modalTitle.textContent = title;
+  modalContent.innerHTML = `
+    <p class="text-white text-base leading-relaxed">${description}</p>
+    <div class="p-3 rounded-lg bg-[#080B12] border border-white/10 flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-[#00d9ff] animate-ping"></span>
+      <span class="font-label-sm text-label-sm text-[#00d9ff] uppercase">Built with Unity Engine &amp; C# Logic</span>
+    </div>
+  `;
+  
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  showToast(`Opening preview for ${title}...`);
+}
+
+function previewCertificate() {
+  const modal = document.getElementById('project-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalContent = document.getElementById('modal-content');
+  
+  modalTitle.textContent = 'BrightXR Certified Computer Foundation Program';
+  modalContent.innerHTML = `
+    <div class="space-y-3">
+      <div class="flex items-center gap-2 text-[#4bffb8]">
+        <span class="material-symbols-outlined">verified</span>
+        <span class="font-label-md text-label-md uppercase font-semibold">Credential Verified &amp; Accredited</span>
+      </div>
+      <p class="text-white leading-relaxed">
+        Issued by <strong>BrightXR Institute</strong> to <strong>Sahilpreet Singh Maan</strong> for mastering computer foundation architecture, object-oriented C# scripting, and interactive 3D spatial concepts in Unity.
+      </p>
+      <div class="grid grid-cols-2 gap-2 pt-2">
+        <div class="p-2.5 rounded bg-[#080B12] border border-white/10">
+          <div class="text-[11px] text-[#a2b4c7] font-mono">TRACK 01</div>
+          <div class="text-xs text-white font-semibold">Phase 1: Completed</div>
+        </div>
+        <div class="p-2.5 rounded bg-[#080B12] border border-white/10">
+          <div class="text-[11px] text-[#a2b4c7] font-mono">TRACK 02</div>
+          <div class="text-xs text-[#4bffb8] font-semibold">Phase 2: Completed</div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  showToast('Verified credential loaded successfully.');
+}
+
+function closeModal() {
+  const modal = document.getElementById('project-modal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+}
+
+// Close modal on escape or background click
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+document.getElementById('project-modal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+// Interactive Form Submit
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('form-name').value.trim();
+  const email = document.getElementById('form-email').value.trim();
+  const message = document.getElementById('form-message').value.trim();
+  
+  if (!name || !email || !message) {
+    showToast('Please fill out all required fields.', 'info');
+    return;
+  }
+  
+  // Show glowing notification banner/toast
+  showToast(`Message dispatched! Thank you ${name}, Sahilpreet will get back to you shortly.`, 'success');
+  
+  // Reset form
+  this.reset();
+});
+
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.contains('hidden');
+    if (isHidden) {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      if (mobileMenuIcon) mobileMenuIcon.textContent = 'close';
+    } else {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+      if (mobileMenuIcon) mobileMenuIcon.textContent = 'menu';
+    }
+  });
+}
+
+// Active navigation indicator logic
+const HEADER_OFFSET = 80;
+const sections = document.querySelectorAll('section[id]');
+const desktopNav = document.getElementById('desktop-nav');
+const desktopNavLinks = document.querySelectorAll('#desktop-nav a.nav-link');
+const mobileNavLinks = document.querySelectorAll('#mobile-menu a.nav-link');
+const navIndicator = document.getElementById('nav-indicator');
+
+let currentActiveId = 'home';
+
+function updateActiveIndicator(targetId) {
+  currentActiveId = targetId;
+
+  // 1. Update Desktop Nav
+  let activeLink = null;
+  desktopNavLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === `#${targetId}`) {
+      link.classList.add('text-[#00d9ff]');
+      link.classList.remove('text-[#a2b4c7]');
+      activeLink = link;
+    } else {
+      link.classList.remove('text-[#00d9ff]');
+      link.classList.add('text-[#a2b4c7]');
+    }
+  });
+
+  if (activeLink && navIndicator && desktopNav) {
+    const linkRect = activeLink.getBoundingClientRect();
+    const navRect = desktopNav.getBoundingClientRect();
+    const leftPos = linkRect.left - navRect.left;
+    const width = linkRect.width;
+
+    navIndicator.style.left = `${leftPos}px`;
+    navIndicator.style.width = `${width}px`;
+    navIndicator.classList.remove('opacity-0');
+  }
+
+  // 2. Update Mobile Menu items
+  mobileNavLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    const dot = link.querySelector('span.w-1\\.5');
+    if (href === `#${targetId}`) {
+      link.classList.add('text-[#00d9ff]', 'border-[#00d9ff]', 'bg-[#171d27]/40');
+      link.classList.remove('text-[#a2b4c7]', 'border-transparent');
+      if (!dot) {
+        const span = document.createElement('span');
+        span.className = 'w-1.5 h-1.5 rounded-full bg-[#00d9ff] shadow-[0_0_8px_#00d9ff]';
+        link.appendChild(span);
+      }
+    } else if (href && href.startsWith('#')) {
+      link.classList.remove('text-[#00d9ff]', 'border-[#00d9ff]', 'bg-[#171d27]/40');
+      link.classList.add('text-[#a2b4c7]', 'border-transparent');
+      if (dot) dot.remove();
+    }
+  });
+}
+
+// Smooth scrolling with sticky header offset (80px) and click handling
+const allNavLinks = document.querySelectorAll('a[href^="#"]');
+
+allNavLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href');
+    if (!targetId || targetId === '#') return;
+    
+    const targetSection = document.querySelector(targetId);
+    if (targetSection) {
+      e.preventDefault();
+      
+      const cleanId = targetId.replace('#', '');
+      updateActiveIndicator(cleanId);
+
+      const elementPosition = targetSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - HEADER_OFFSET;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      // Close mobile menu if open
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        if (mobileMenuIcon) mobileMenuIcon.textContent = 'menu';
+      }
+
+      // Update URL hash without jump
+      history.pushState(null, null, targetId);
+    }
+  });
+});
+
+// Scroll-spy listener to update indicator smoothly on scroll
+function onScrollSpy() {
+  const scrollPosition = window.pageYOffset + HEADER_OFFSET + 60;
+  let activeSectionId = 'home';
+
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    if (scrollPosition >= top && scrollPosition < top + height) {
+      activeSectionId = section.getAttribute('id');
+    }
+  });
+
+  // Special check if reached bottom of page -> highlight contact
+  if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 50) {
+    activeSectionId = 'contact';
+  }
+
+  if (activeSectionId !== currentActiveId) {
+    updateActiveIndicator(activeSectionId);
+  }
+}
+
+window.addEventListener('scroll', onScrollSpy, { passive: true });
+window.addEventListener('resize', () => {
+  updateActiveIndicator(currentActiveId);
+});
+
+// Initial position call after DOM is fully painted
+window.addEventListener('DOMContentLoaded', () => {
+  updateActiveIndicator('home');
+});
+setTimeout(() => {
+  updateActiveIndicator('home');
+}, 100);
+</script>
+
+
+
+
+
+
+</body></html>
