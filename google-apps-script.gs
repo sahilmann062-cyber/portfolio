@@ -1,3 +1,5 @@
+var CONTACT_RECIPIENT = 'sahilmann062@gmail.com';
+
 function doPost(e) {
   try {
     var sheet = SpreadsheetApp
@@ -24,6 +26,13 @@ function doPost(e) {
     }
 
     sheet.appendRow([new Date(), name, email, message]);
+
+    MailApp.sendEmail({
+      to: CONTACT_RECIPIENT,
+      replyTo: email,
+      subject: 'New portfolio contact message',
+      body: 'Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message
+    });
 
     return ContentService
       .createTextOutput(JSON.stringify({ result: 'success' }))
